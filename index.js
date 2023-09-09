@@ -61,3 +61,15 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+function game() {
+  let playerSelection = prompt("Pick you weapon, human");
+  let computerSelection = getComputerChoice();
+  playRound(playerSelection, computerSelection);
+  console.log(`Player Score: ${playerScore}\nA.I Score: ${computerScore}\nTies: ${tieScore}`);
+}
+
+game();
+game();
+game();
+game();
+game();
