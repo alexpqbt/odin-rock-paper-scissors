@@ -6,8 +6,6 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  playerSelection = playerSelection.toLowerCase();
-
   if (playerSelection === "rock") {
     console.log("Player has played the all-mighty ROCK!");
 
@@ -64,12 +62,9 @@ function playRound(playerSelection, computerSelection) {
 function game() {
   let playerSelection = prompt("Pick you weapon, human");
   let computerSelection = getComputerChoice();
+
+  playerSelection = playerSelection.toLowerCase();
   playRound(playerSelection, computerSelection);
+  
   console.log(`Player Score: ${playerScore}\nA.I Score: ${computerScore}\nTies: ${tieScore}`);
 }
-
-game();
-game();
-game();
-game();
-game();
