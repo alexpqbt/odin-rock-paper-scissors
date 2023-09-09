@@ -5,53 +5,68 @@ function getComputerChoice() {
   return hands[(Math.floor(Math.random() * hands.length))];
 }
 
+function customMessages(string, condition) {
+  upperString = string.toUpperCase();
+
+  switch (condition) {
+    case 'W':
+      console.log(`The A.I chooses the measly ${upperString}!`);
+      console.log("[W] Player has defeated the evil, totally intelligent A.I !!!");
+      break;
+
+    case 'L':
+      console.log(`The A.I chooses the heaven-rendering ${upperString}!`);
+      console.log("[L] The A.I has defeated the PLAYER! May our hero be remembered...");
+      break;
+
+    case 'T':
+      console.log(`The A.I chooses the tiemaker, ${upperString}!`);
+      console.log("[T] You Player will continue to live the next battle");
+      break;
+  
+    default:
+      break;
+  }
+}
+
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock") {
     console.log("Player has played the all-mighty ROCK!");
 
     if (computerSelection === "scissors") {
-      console.log("The A.I chooses the measly SCISSORS!");
-      console.log("[W] Player has defeated the evil, totally intelligent A.I !!!");
+      customMessages("scissors", 'W');
       playerScore++;
     } else if (computerSelection === "paper") {
-      console.log("The A.I chooses the heaven-rendering PAPER!");
-      console.log("[L] The A.I has defeated the PLAYER! May our hero be remembered...");
+      customMessages("paper", 'L');
       computerScore++;
     } else {
-      console.log("The A.I chooses the tiemaker, ROCK!");
-      console.log("[T] You Player will continue to live the next battle");
+      customMessages("rock", 'T')
       tieScore++;
     }
   } else if (playerSelection === "paper") {
     console.log("Player has played the tempest-summoning PAPER!");
     
     if (computerSelection === "rock") {
-      console.log("The A.I chooses the measly ROCK!");
-      console.log("[W] Player has defeated the evil, totally intelligent A.I !!!");
+      customMessages("rock", 'W');
       playerScore++;
     } else if (computerSelection === "scissors") {
-      console.log("The A.I chooses the heaven-rendering SCISSORS!");
-      console.log("[L] The A.I has defeated the PLAYER! May our hero be remembered...");
+      customMessages("scissors", 'L');
       computerScore++;
     } else {
-      console.log("The A.I chooses the tiemaker, PAPER!");
-      console.log("[T] You Player will continue to live the next battle");
+      customMessages("paper", 'T');
       tieScore++;
     }
   } else if (playerSelection === "scissors") {
     console.log("Player has played the reality-breaking SCISSORS!");
     
     if (computerSelection === "paper") {
-      console.log("The A.I chooses the measly PAPER!");
-      console.log("[W] Player has defeated the evil, totally intelligent A.I !!!");
+      customMessages("paper", 'W');
       playerScore++;
     } else if (computerSelection === "rock") {
-      console.log("The A.I chooses the heaven-rendering ROCK!");
-      console.log("[L] The A.I has defeated the PLAYER! May our hero be remembered...");
+      customMessages("rock", 'L');
       computerScore++;
     } else {
-      console.log("The A.I chooses the tiemaker, SCISSORS!");
-      console.log("[T] You Player will continue to live the next battle");
+      customMessages("scissors", 'T');
       tieScore++;
     }
   } else {
